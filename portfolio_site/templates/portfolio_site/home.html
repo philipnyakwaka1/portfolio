@@ -1,141 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Home</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        .subtitle {
-            font-size: 1.5rem;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        .api-info {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 40px;
-            text-align: left;
-        }
-        .api-info h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        .endpoint {
-            background: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border-left: 4px solid #667eea;
-        }
-        .endpoint code {
-            color: #764ba2;
-            font-weight: bold;
-        }
-        .endpoint p {
-            color: #666;
-            margin-top: 5px;
-        }
-        .features {
-            margin-top: 40px;
-            text-align: left;
-        }
-        .features h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        .features ul {
-            list-style: none;
-            padding: 0;
-        }
-        .features li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-        .features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Portfolio Application</h1>
-        <p class="subtitle">Django RESTful Portfolio Management System</p>
-        
-        <div class="features">
-            <h3>Features</h3>
-            <ul>
-                <li>RESTful API endpoints for portfolio data</li>
-                <li>Modular Django app architecture</li>
-                <li>Projects, Skills, Experience, and Contact management</li>
-                <li>Django Admin interface for content management</li>
-                <li>Static files and media serving support</li>
-            </ul>
-        </div>
+{% extends 'portfolio_site/base.html' %}
+{% load static %}
 
-        <div class="api-info">
-            <h2>Available API Endpoints</h2>
-            
-            <div class="endpoint">
-                <code>GET /api/projects/</code>
-                <p>List all portfolio projects. Supports ?featured=true filter.</p>
-            </div>
-            
-            <div class="endpoint">
-                <code>GET /api/skills/</code>
-                <p>List all skills. Supports ?category=Backend filter.</p>
-            </div>
-            
-            <div class="endpoint">
-                <code>GET /api/experience/</code>
-                <p>List all work experience entries.</p>
-            </div>
-            
-            <div class="endpoint">
-                <code>GET /api/contact/</code>
-                <p>List contact submissions (admin only).</p>
-            </div>
-            
-            <div class="endpoint">
-                <code>POST /api/contact/</code>
-                <p>Submit a new contact form message.</p>
-            </div>
+{% block content %}
+<section id="hero" class="container hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <p class="tagline">I'm PHILIP - building cloud-native geospatial solutions that actually work. Backend principles. Accuracy meets accessibility.</p>
+        <div class="hero-actions">
+            <a href="#projects" class="cta-button">View My Work &darr;</a>
+            <a href="[Your Resume URL / PDF Link]" target="_blank" class="cta-button resume-button">Resume <i class="fas fa-download"></i></a>
         </div>
     </div>
-</body>
-</html>
+    <div class="social-links" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <a href="https://www.linkedin.com/in/philip-nyakwaka-30881b213/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/philipnyakwaka1" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://medium.com/@philipnyakwaka24/about" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+        <a href="https://stackoverflow.com/users/29432659/philip-nyakwaka" target="_blank" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+        <a href="https://x.com/ominaphillip18" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+</section>
+
+<section id="about" class="container section-padding" data-aos="fade-up">
+    <h2>About Me</h2>
+    <div class="about-flex-container">
+        <div class="about-photo-wrapper">
+            <img src="{% static 'portfolio_site/images/philip.jpeg' %}" alt="Philip's image" class="profile-photo">
+        </div>
+        <div class="about-text-content">
+            <p>I am a Geospatial Engineer by training with a fervent love for technology. My professional mission is to integrate advanced Geographic Information Systems (GIS) expertise with robust software engineering principles to build cutting-edge, cloud-native geospatial solutions. By leveraging my Python and backend development skills, I aim to democratize geospatial data access by architecting scalable, free, and affordable open-source tools.</p>
+            <div id="more-about-content" class="hidden-content">
+                <p>While working at various organizations in Kenya, I discovered how technology could address various spatial problems. One pertinent drawback wasn't necessarily the lack of proprietary systems, but the inability to appropriate capital for relevant systems. Nevertheless, there was a need to customize existing systems to suit organizational needs. It was apparent to me that I wanted to play a pivotal role in democratizing the use of geospatial data by building free and affordable geospatial solutions and contributing to open-source geospatial projects.</p>
+                <p>In pursuit of my ambitions, I discovered the field of geospatial application development. To thrive in this field, I had to begin by understanding the basics of computing. Luckily for me, I have always had an enormous curiosity about how systems work at their most fundamental level. I then enrolled in a one-year software engineering course at ALX Africa and specialized in backend technologies within the last three months of the program. The intensive 70-hour-a-week curriculum equipped me with the foundational computer science knowledge to decompose complex applications to their most fundamental truth and build solutions from the ground up. I am now a backend engineer capable of designing and deploying full-stack geospatial web applications.</p>
+                <p>My core technical stack includes Python, Django, Flask, JavaScript, SQL, Docker, and Google Maps cloud APIs. My career trajectory is not defined by a transition away from GIS, but by a strategic integration of these software skills with high-accuracy spatial analysis.</p>
+                <p>To accelerate this vision, I am exploring postgraduate studies in advanced computational methods, including Deep Learning in Remote Sensing and GIS Algorithms and Programming. Ultimately, I am passionate about pioneering a startup in the geospatial development space.</p>
+                <p>This platform serves as my digital laboratory where I commit to building in public by documenting my learning journey, sharing my research, and detailing my project builds. Recognizing that accountability is the cornerstone of achieving ambitious goals, I am dedicating this process to you and the community to ensure consistent progress and continuous development.</p>
+                <p>If you are a self-taught developer, a GIS professional exploring coding, or someone interested in the intersection of AI and geospatial data, I believe you'll find something relevant here. Your thoughts, feedback, and comments on my posts are highly valued, as they help drive my continuous development and ensure the work remains relevant and impactful.</p>
+            </div>
+            <button id="read-more-btn" class="read-more-link">Read more about me <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="container section-padding" data-aos="fade-up">
+    <h2>My Work</h2>
+    <h3>Coming Soon...</h3>
+    
+    <div class="project-grid">
+        
+        <!-- <div class="project-card visible">
+            <div class="card-image-wrapper">
+                <img src="https://via.placeholder.com/400x180?text=API+Documentation" alt="Project Image Cover" class="card-image">
+            </div>
+            <div class="card-details">
+                <h3>Geospatial Data API</h3>
+                <p class="tech-stack"><span>Flask</span><span>Python</span><span>GeoPandas</span><span>Docker</span></p>
+                <p>A containerized RESTful API built to serve vector and raster data endpoints to client-side applications efficiently.</p>
+                <div class="card-links">
+                    <a href="[API Docs URL]" target="_blank" class="project-link">Documentation <i class="fas fa-book"></i></a>
+                    <a href="[GitHub Repo URL]" target="_blank" class="project-link">Code <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div> -->
+        
+    </div>
+    <button class="load-more-btn">See More Projects (2)</button>
+</section>
+
+<section id="links" class="container section-padding secondary-bg" data-aos="fade-up">
+    <h2>Blog & Learning Resources</h2>
+    <div class="resource-grid">
+        <a href="https://medium.com/@philipnyakwaka24" target="_blank" class="resource-card blog-card">
+            <h3>My Blogs</h3>
+            <p>My public commitment to documenting my GIS development journey.</p>
+            <i class="fas fa-blog"></i>
+        </a>
+        <a href="https://blog.philipnyakwaka.tech" target="_blank" class="resource-card tutorial-card">
+            <h3>Tutorials & Guides</h3>
+            <p>Step-by-step guides for Backend, ML, and Geospatial development, featuring Django, PostGIS, and Leaflet.</p>
+            <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://github.com/philipnyakwaka1/Personal-Docs" target="_blank" class="resource-card docs-card">
+            <h3>Personal Docs</h3>
+            <p>A repository of my quick reference code snippets and notes.</p>
+            <i class="fas fa-terminal"></i>
+        </a>
+    </div>
+</section>
+
+<section id="testimonials" class="container section-padding" data-aos="fade-up">
+    <h2>What People Say About Me</h2>
+    <div class="testimonial-carousel-wrapper">
+        <div class="testimonial-carousel">
+            
+            <div class="testimonial-card">
+                <img src="{% static 'portfolio_site/images/Quinto.jpg' %}" alt="" class="testimonial-photo">
+                <p class="testimonial-text">"His hard work and teamwork made him really helpful and easy to approach."</p>
+                <p class="testimonial-author"><strong>Quinto Juma</strong>, Geospatial Consultant, ICIPE</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <img src="{% static 'portfolio_site/images/Sydney.jpg' %}" alt="" class="testimonial-photo">
+                <p class="testimonial-text">"During his stay with us, we found Mr. Nyakwaka to have a very keen sense of duty and got on well with others within the working environment. He always looked for opportunities to automate GIS workflows in order to make people’s work easier. "</p>
+                <p class="testimonial-author"><strong>Sidney Simiyu</strong>, Solutions Engineer, Esri Eastern Africa</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <img src="{% static 'portfolio_site/images/Joanne.jpg' %}" alt="" class="testimonial-photo">
+                <p class="testimonial-text">"Philip possesses a remarkable ability to analyze complex problems and devise effective solutions. His technical skills are exemplary."</p>
+                <p class="testimonial-author"><strong>Joan Waithira</strong>, M.Sc student, University of Twente.</p>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-dots"></div>
+            <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="container section-padding secondary-bg" data-aos="fade-up">
+    <h2>Let's Talk About Your Project</h2>
+    <p class="contact-intro">Have a project in mind or just want to chat? Send me a message, and I'll get back to you as soon as possible!</p>
+    <form id="contact-form" class="contact-form">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="cta-button">Send Message</button>
+        <div id="form-status" class="form-status"></div>
+    </form>
+</section>
+{% endblock %}
+        

@@ -50,8 +50,13 @@ venv.bak/
 # OS
 .DS_Store
 Thumbs.db
+*:Zone.Identifier
 
 # Testing
 .coverage
 htmlcov/
 .pytest_cache/
+
+# md
+PORTFOLIO_SITE_STANDALONE.md
+test.py
